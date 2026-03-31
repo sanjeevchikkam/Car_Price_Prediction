@@ -26,8 +26,17 @@ def predict_price(user_input: dict, model_name: ModelName = "random_forest") -> 
     feature_columns: list = _load("feature_columns.pkl")
     model = _load(f"{model_name}.pkl")
 
+    means = _load("means.pkl")
+
     # Reproduce the same preprocessing as training
     input_df = pd.DataFrame([user_input])
+
+    for col, value in means.items():
+        if col not in input_df.columns:
+            input_df[col] = value   # add missing column
+        else:
+            input_df[col] = input_df[col].fillna(value)
+
     input_df = pd.get_dummies(input_df)
     input_df = input_df.reindex(columns=feature_columns, fill_value=0)
 

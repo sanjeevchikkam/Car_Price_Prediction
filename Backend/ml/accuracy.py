@@ -1,7 +1,7 @@
 import os
 import pickle
 
-MODELS_DIR = os.path.join(os.path.dirname(__file__), "models")
+MODELS_DIR =  "models"
 
 
 def get_accuracy_report() -> dict:
