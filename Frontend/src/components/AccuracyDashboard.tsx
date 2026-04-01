@@ -43,7 +43,7 @@ export default function AccuracyDashboard() {
   const r2Data = modelMeta.map((m) => ({
     name: m.label.split(" ").map(w => w[0]).join(""),
     fullName: m.label,
-    value: data[m.key]?.r2 ?? 0,
+    value: data[m.key]?.R2 ?? 0,
     color: m.color,
   }));
 
@@ -89,15 +89,15 @@ export default function AccuracyDashboard() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">MAE</span>
-                  <span className="font-mono font-medium">{(m.mae ?? 0).toFixed(2)}</span>
+                  <span className="font-mono font-medium">{(m.MAE ?? 0).toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">MSE</span>
-                  <span className="font-mono font-medium">{(m.mse ?? 0).toFixed(2)}</span>
+                  <span className="font-mono font-medium">{(m.MSE ?? 0).toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">R² Score</span>
-                  <span className="font-mono font-medium">{(m.r2 ?? 0).toFixed(4)}</span>
+                  <span className="font-mono font-medium">{(m.R2 ?? 0).toFixed(4)}</span>
                 </div>
               </div>
             </div>
